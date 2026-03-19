@@ -4,13 +4,51 @@
     <meta charset="UTF-8">
     <title>kiki-siqi-HE - 和思绮</title>
     <style>
+        /* 全局样式调整：改为左右两栏布局 */
+        * {margin: 0; padding: 0; box-sizing: border-box;}
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            max-width: 900px;
+            max-width: 1200px; /* 加宽页面适配两栏 */
             margin: 0 auto;
             padding: 40px 20px;
             line-height: 1.7;
             color: #333;
+            display: flex; /* 核心：开启flex实现两栏 */
+            gap: 60px; /* 左右栏间距 */
+        }
+
+        /* 左侧侧边栏样式（新增） */
+        .sidebar {
+            width: 240px; /* 侧边栏宽度 */
+            flex-shrink: 0; /* 固定宽度不收缩 */
+            text-align: center;
+        }
+        /* 头像样式 */
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px; /* 圆角（可选：想圆形就改50%） */
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+        /* 侧边栏信息样式 */
+        .sidebar-info {
+            text-align: left;
+            font-size: 15px;
+            line-height: 2.2;
+        }
+        .sidebar-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .sidebar-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 右侧主内容样式（保留你的原有样式，仅微调） */
+        .main {
+            flex: 1; /* 占满剩余宽度 */
         }
         h1 {
             font-size: 2.2em;
@@ -32,63 +70,70 @@
         a:hover {
             text-decoration: underline;
         }
+        /* 优化段落间距（修复你原有代码的多余p标签问题） */
+        .main p {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
-    <h1>kiki-siqi-HE</h1>
+    <!-- 左侧栏：头像 + 你要的信息（新增） -->
+    <div class="sidebar">
+        <!-- 头像：上传后替换路径，建议命名为avatar.jpg放在根目录 -->
+        <img src="avatar.jpg" alt="和思绮" class="avatar">
+        <div class="sidebar-info">
+            <p>🌍 China</p>
+            <p>🏫 Yunnan Minzu University</p>
+            <p>📧 <a href="mailto:kishihe3@outlook.com">你的邮箱@example.com</a></p>
+            <p>🆔 <a href="https://orcid.org/0000-0002-5040-747X" target="_blank">ORCID</a></p>
+            <p>🐙 <a href="https://github.com/kiki-siqi-HE" target="_blank">GitHub</a></p>
+        </div>
+    </div>
 
-    <h2>About Me / 个人简介</h2>
-    <p>🥣 Experience/ 工作经历:  <p>
-       
-        <p>2026.03——         School of Politics and Public Administration, Yunnan Minzu University, Teaching Assistant <p>
-                          <p>云南民族大学, 政治与公共管理学院, 助教 <p>
+    <!-- 右侧主内容：保留你所有原有内容，仅修复排版问题 -->
+    <div class="main">
+        <h1>kiki-siqi-HE (和思绮)</h1>
+
+        <h2>About Me / 个人简介</h2>
+        <p>🥣 Experience/ 工作经历:</p>
+        <p>2026.03——         School of Politics and Public Administration, Yunnan Minzu University, Teaching Assistant</p>
+        <p>云南民族大学, 政治与公共管理学院, 助教</p>
         
-    <p>📚 Education / 教育经历:  <p>
-        
-        <p>2020.09——2025.06  School of Public Policy and Administration, Chongqing University, Ph.D. <p>
-                          <p>重庆大学, 公共管理学院, 博士 <p>
-       
-        <p>2022.09——2023.09  Department of Political Science, University of Copenhagen, CSC-sponsored Visiting Scholar <p>
-                          <p>哥本哈根大学, 政治科学系, CSC公派访学 <p>
-       
-        <p>2018.09——2020.06  School of Public Policy and Administration, Chongqing University,Integrated Master’s and Doctoral Program <p>
-                          <p>重庆大学公共管理学院, 硕博连读 <p>
+        <p>📚 Education / 教育经历:</p>
+        <p>2020.09——2025.06  School of Public Policy and Administration, Chongqing University, Ph.D.</p>
+        <p>重庆大学, 公共管理学院, 博士</p>
+        <p>2022.09——2023.09  Department of Political Science, University of Copenhagen, CSC-sponsored Visiting Scholar</p>
+        <p>哥本哈根大学, 政治科学系, CSC公派访学</p>
+        <p>2018.09——2020.06  School of Public Policy and Administration, Chongqing University,Integrated Master’s and Doctoral Program</p>
+        <p>重庆大学公共管理学院, 硕博连读</p>
+        <p>2014.09——2018.06  School of Public Administration, Zhongnan University of Economics and Law, Bachelor's Degree</p>
+        <p>中南财经政法大学公共管理学院, 学士</p>
+
+        <h2>Research Areas / 研究领域</h2>
+        <p>🤖 AI in the Public Sector / 公共部门人工智能应用</p>
+        <p>🤝 Citizen-government Interaction / 政民互动</p>
+        <p>☀️ Government Transparency / 政府透明度</p>
+        <p>😭 Administrative Burden / 行政负担</p>
+
+        <h2>Research Methods / 研究方法</h2>
+        <p>🔧 Survey Experiment / 调查实验: 1. Factorial Experiment / 因素试验; 2. Conjoint Experiment / 联合实验</p>
+        <p>🔧 Questionnaire Survey / 问卷调查</p>
+        <p>🔧 Semi-structured Interview / 半结构化访谈</p>
+        <p>🔧 Systematic Literature Review / 系统性文献综述</p>
     
-        <p>2014.09——2018.06  School of Public Administration, Zhongnan University of Economics and Law, Bachelor's Degree <p>
-                          <p>中南财经政法大学公共管理学院, 学士</p>
-
-    <h2>Research Areas / 研究领域</h2>
-    <p>🤖 AI in the Public Sector / 公共部门人工智能应用 <p>
-        
-    <p>🤝 Citizen-government Interaction / 政民互动 <p>
-        
-    <p>☀️ Government Transparency / 政府透明度 <p>
-        
-    <p>😭 Administrative Burden / 行政负担</p>
-
-    <h2>Research Methods / 研究方法</h2>
-    <p>🔧 Survey Experiment / 调查实验: <p>
-       <p>1. Factorial Experiment / 因素试验 <p>
-       <p>2. Conjoint Experiment / 联合实验 <p>
-        
-    <p>🔧 Questionnaire Survey / 问卷调查 <p>
-        
-    <p>🔧 Semi-structured Interview / 半结构化访谈 <p>
-        
-    <p>🔧 Systematic Literature Review / 系统性文献综述</p>
-    
-    <h2>Publications / 学术成果</h2>
-    <p>🇨🇳 Papers in Chinese / 中文论文 <p>
-       <p>1. 和思绮, 刘炳胜. 公民更信任公共部门中的“人”还是“人工智能”？一项考虑任务复杂程度与公共领域的调查实验研究, 公共行政评论, 2025, 18(4): 22-40.</p>
+        <h2>Publications / 学术成果</h2>
+        <p>🇨🇳 Papers in Chinese / 中文论文</p>
+        <p>1. 和思绮, 刘炳胜. 公民更信任公共部门中的“人”还是“人工智能”？一项考虑任务复杂程度与公共领域的调查实验研究, 公共行政评论, 2025, 18(4): 22-40.</p>
    
-    <p>✍️ Papers in English / 英文论文
-       <p>1. Bingsheng Liu, Siqi He, Wenxuan Yu, Yuan Chen, Xuan Hu, Jinfeng Zhang. Can transparency promote citizen compliance in China? The role of justice and social identification, International Public Management Journal, 2023, 27(5): 1-20. <p>
-       <p>2. Bingsheng Liu, Siqi He, Sen Lin, Jinfeng Zhang, Bin Xue. How usability of policy transparency promotes citizen compliance: evidence from a survey experiment, Journal of Chinese Governance, 2023, 8(4): 1-25. <p>
-       <p>3. Bingsheng Liu, Sen Lin, Siqi He, Jinfeng Zhang. Encourage or impede? The relationship between trust in government and coproduction, Public Management Review, 2024, 26(12): 3501-3528. <p>
-       <p>4. Bingsheng Liu, Sen Lin, Xiaohao Yuan, Siqi He, Jinfeng Zhang. Nudge citizen participation by framing mobilization information: a survey experiment in China, Journal of Chinese Governance, 2023, 9(1): 1-26</p>
+        <p>✍️ Papers in English / 英文论文</p>
+        <p>1. Bingsheng Liu, Siqi He, Wenxuan Yu, Yuan Chen, Xuan Hu, Jinfeng Zhang. Can transparency promote citizen compliance in China? The role of justice and social identification, International Public Management Journal, 2023, 27(5): 1-20.</p>
+        <p>2. Bingsheng Liu, Siqi He, Sen Lin, Jinfeng Zhang, Bin Xue. How usability of policy transparency promotes citizen compliance: evidence from a survey experiment, Journal of Chinese Governance, 2023, 8(4): 1-25.</p>
+        <p>3. Bingsheng Liu, Sen Lin, Siqi He, Jinfeng Zhang. Encourage or impede? The relationship between trust in government and coproduction, Public Management Review, 2024, 26(12): 3501-3528.</p>
+        <p>4. Bingsheng Liu, Sen Lin, Xiaohao Yuan, Siqi He, Jinfeng Zhang. Nudge citizen participation by framing mobilization information: a survey experiment in China, Journal of Chinese Governance, 2023, 9(1): 1-26</p>
 
-    <h2>Contact Information / 联系方式</h2>
-    <p>📮 Email: your-email@example.com</p>
-    <p>😄 GitHub: <a href="https://github.com/kiki-siqi-HE">https://github.com/kiki-siqi-HE</a></p>
+        <h2>Contact Information / 联系方式</h2>
+        <p>📮 Email: kishihe3@outlook.com</p>
+        <p>😄 GitHub: <a href="https://github.com/kiki-siqi-HE">https://github.com/kiki-siqi-HE</a></p>
+    </div>
 </body>
 </html>
