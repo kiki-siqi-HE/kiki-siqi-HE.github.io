@@ -17,20 +17,22 @@
         }
 
        
-        .sidebar {
-            width: 240px; 
-            flex-shrink: 0;
-            text-align: center;
-        }
-      
-        .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50px; 
-            object-fit: cover;
-            margin-bottom: 25px;
-            border: 1px solid #eee;
-        }
+        /* 左侧侧边栏：加宽整栏宽度（原240px → 改300px，可按需调更大） */
+.sidebar {
+    width: 300px; /* 整栏宽度，比原来宽60px，可改320/350px */
+    flex-shrink: 0;
+    text-align: center;
+}
+
+/* 头像：调大尺寸（原180px → 改220px，和加宽的侧边栏适配） */
+.avatar {
+    width: 220px; /* 头像宽度，调大 */
+    height: 220px; /* 头像高度，和宽度一致避免变形 */
+    border-radius: 50px; /* 圆角大小，想圆形就改50%（推荐） */
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+}
         
         .sidebar-info {
             text-align: left;
